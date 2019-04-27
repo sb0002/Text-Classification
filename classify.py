@@ -233,8 +233,14 @@ def mnb():
 					linedict[word] = 1
 
 			for word in linedict:
+				try:
 					sumclass1 += (math.log((1 + dictionary[word][0])/(1 + cpost)) * linedict[word])
+				except:
+					sumclass1 += (math.log((1 + 0)/(1 + cpost)) * linedict[word])
+				try:
 					sumclass2 += (math.log((1 + dictionary[word][1])/(1 + cnegt)) * linedict[word])
+				except:
+					sumclass2 += (math.log((1 + 0)/(1 + cnegt)) * linedict[word])
 
 			if(sumclass1 >= sumclass2):
 				if(line[0] == "1"):
